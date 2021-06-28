@@ -1,17 +1,16 @@
 package com.digitalinnovationone.personapi.service;
 
+import lombok.AllArgsConstructor;
 import com.digitalinnovationone.personapi.dto.request.PersonDTO;
 import com.digitalinnovationone.personapi.dto.response.MessageResponseDTO;
 import com.digitalinnovationone.personapi.entity.Person;
 import com.digitalinnovationone.personapi.exception.PersonNotFoundException;
 import com.digitalinnovationone.personapi.mapper.PersonMapper;
 import com.digitalinnovationone.personapi.repository.PersonRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,7 +21,7 @@ public class PersonService {
 
     private final PersonMapper personMapper = PersonMapper.INSTANCE;
 
-    public MessageResponseDTO createPerson(PersonDTO personDTO){
+    public MessageResponseDTO createPerson(PersonDTO personDTO) {
         Person personToSave = personMapper.toModel(personDTO);
 
         Person savedPerson = personRepository.save(personToSave);
@@ -38,6 +37,7 @@ public class PersonService {
 
     public PersonDTO findById(Long id) throws PersonNotFoundException {
         Person person = verifyIfExists(id);
+
         return personMapper.toDTO(person);
     }
 
@@ -52,11 +52,11 @@ public class PersonService {
         Person personToUpdate = personMapper.toModel(personDTO);
 
         Person updatedPerson = personRepository.save(personToUpdate);
-        return createMessageResponse(updatedPerson.getId(),"Update person with ID ");
+        return createMessageResponse(updatedPerson.getId(), "Updated person with ID ");
     }
 
     private Person verifyIfExists(Long id) throws PersonNotFoundException {
-        return  personRepository.findById(id)
+        return personRepository.findById(id)
                 .orElseThrow(() -> new PersonNotFoundException(id));
     }
 
