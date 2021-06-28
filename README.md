@@ -11,11 +11,26 @@
 ![language-count](https://img.shields.io/github/languages/count/luizcsbh/personapi)
 [![twwiter follow](https://img.shields.io/twitter/follow/luizcs?style=social)](https://twitter.com/luizcs)
 # Person API
-Api Java com Spring Boot
+Pequeno sistema de gerenciamento de pessoas de uma empresa através de uma API  Rest, criada com Spring Boot
 
+##Execute project
+Para executar o projeto no terminal, digite o seguinte comando:
+
+```java
+mvn spring-boot:run
+```
+Após executar o camando acima, basta abrir no navegador o endereço abaixo:
+
+```http
+http://localhost:8080/api/v1/people
+```
+
+## Pre requesitos
+- Java 11 ou versões superiores
+
+- Maven 3.6.3 ou versões superiores
 
 ## Author
-
 - [Luiz Santos](https://about.me/luizcsdev)
 
 ## License
