@@ -25,7 +25,7 @@ Após executar o camando acima, basta abrir no navegador o endereço abaixo:
 http://localhost:8080/api/v1/people
 ```
 
-## Pre requesitos
+## Pré requisitos
 - Java 11 ou versões superiores
 
 - Maven 3.6.3 ou versões superiores
